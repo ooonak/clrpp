@@ -10,10 +10,6 @@ add_library(clrpp
   ${CAPNP_HDRS}
   clrpp.cpp)
 
-if(STRICT_WARNINGS)
-  set_warnings(${PROJECT_NAME})
-endif()
-
 target_include_directories(${PROJECT_NAME}
     PUBLIC
     $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
@@ -21,8 +17,11 @@ target_include_directories(${PROJECT_NAME}
     $<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(clrpp PRIVATE spdlog::spdlog)
-target_link_libraries(clrpp PRIVATE capnproto::capnproto)
+target_link_libraries(clrpp 
+  PRIVATE 
+  spdlog::spdlog
+  capnproto::capnproto
+)
 
 add_library(clrpp::clrpp ALIAS clrpp)
 

@@ -8,11 +8,9 @@ project(
 
 option(TESTS "Build tests" ON)
 option(STATIC_ANALYSIS "Run clang-tidy and CppCheck status analysis tools" OFF)
-option(STRICT_WARNINGS "Use strict compiler warnings" ON)
 
 # Only do these if this is the main project, and not if it is included through add_subdirectory
-if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)  
-  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   set(CMAKE_VERBOSE_MAKEFILE ON)
   set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -22,8 +20,8 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
   # Let's nicely support folders in IDEs
   set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake-files/cmake")
-  include(snippets) 
+  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
+  include(static_analysis) 
 
   if(STATIC_ANALYSIS)
     enable_clang_tidy()
@@ -32,13 +30,6 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 
   include(GNUInstallDirs)
   include(CTest)
-
-  find_package(Doxygen)
-  if(Doxygen_FOUND)
-    add_subdirectory(docs)
-  else()
-    message(STATUS "Doxygen not found, not building docs")
-  endif()
 endif()
 
 find_package(spdlog CONFIG REQUIRED)
