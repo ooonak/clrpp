@@ -1,8 +1,9 @@
 #include <iostream>
 #include "clrpp/clrpp.hpp"
 #include "spdlog/spdlog.h"
-#include <capnp/message.h>
-#include <capnp/serialize.h>
+#include "capnp/message.h"
+#include "capnp/serialize.h"
+#include "rpc.capnp.h"
 
 
 void clrpp(){

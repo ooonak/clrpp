@@ -53,7 +53,6 @@ message(STATUS "CXX flags: ${CMAKE_CXX_FLAGS}")
 # Emergency override MODERN_CMAKE_BUILD_TESTING provided as well
 if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR MODERN_CMAKE_BUILD_TESTING)
   AND TESTS)
-  set(CMAKE_PREFIX_PATH "/home/swu/.conan2/p/gtestf46417e2f457c/e")
   find_package(GTest REQUIRED CONFIG)
   add_subdirectory(tests)
 endif()

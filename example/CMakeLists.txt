@@ -8,8 +8,6 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog)
 target_link_libraries(${PROJECT_NAME} PRIVATE capnproto::capnproto)
-
-
 target_link_libraries(${PROJECT_NAME} PRIVATE clrpp::clrpp)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)

@@ -1,8 +1,13 @@
 cmake_minimum_required(VERSION 3.30.3)
 project(clrpp CXX)
 
+# Generate C++ code from Cap'n Proto schema files
+capnp_generate_cpp(CAPNP_SRCS CAPNP_HDRS rpc.capnp)
+
 add_library(clrpp
   ../include/clrpp/clrpp.hpp
+  ${CAPNP_SRCS}
+  ${CAPNP_HDRS}
   clrpp.cpp)
 
 if(STRICT_WARNINGS)
@@ -12,14 +17,12 @@ endif()
 target_include_directories(${PROJECT_NAME}
     PUBLIC
     $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
     $<INSTALL_INTERFACE:include>
 )
 
 target_link_libraries(clrpp PRIVATE spdlog::spdlog)
 target_link_libraries(clrpp PRIVATE capnproto::capnproto)
-
-# All users of this library will need at least C++23
-#target_compile_features(clrpp PUBLIC cxx_std_23)
 
 add_library(clrpp::clrpp ALIAS clrpp)
 

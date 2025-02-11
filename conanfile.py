@@ -1,5 +1,6 @@
 from conan import ConanFile
 from conan.tools.cmake import CMakeToolchain, CMake, cmake_layout, CMakeDeps
+import os
 
 
 class clrppRecipe(ConanFile):
@@ -61,4 +62,3 @@ class clrppRecipe(ConanFile):
 
     def build_requirements(self):
         self.test_requires("gtest/1.15.0")
-
