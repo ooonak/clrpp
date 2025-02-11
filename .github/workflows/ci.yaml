@@ -16,6 +16,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Istall Ninja
+        run: apt-get update && apt-get -y install ninja-build
+
       - name: Install Conan
         run: pip install conan
 
@@ -24,7 +27,7 @@ jobs:
 
       - name: Setup default profile
         run: conan profile detect
-        
+
       - name: Install profiles
         run: conan config install https://github.com/ooonak/conanconf.git -t git --args="-b main" -sf=profiles -tf=profiles
 
