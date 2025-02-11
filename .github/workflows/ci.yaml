@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,6 +22,9 @@ jobs:
       - name: Conan version
         run: conan --version
 
+      - name: Setup default profile
+        run: conan profile detect
+        
       - name: Install profiles
         run: conan config install https://github.com/ooonak/conanconf.git -t git --args="-b main" -sf=profiles -tf=profiles
 
