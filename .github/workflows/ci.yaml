@@ -22,11 +22,14 @@ jobs:
       - name: Conan version
         run: conan --version
 
+      - name: Setup default profile
+        run: conan profile detect
+        
       - name: Install profiles
         run: conan config install https://github.com/ooonak/conanconf.git -t git --args="-b main" -sf=profiles -tf=profiles
 
       - name: Build and test with GCC
-        run: conan create . --profile:build=x86_64-gcc-14-release --build=missing
+        run: conan create . -pr x86_64-gcc-14-release --build=missing
 
       - name: Build and test with clang
-        run: conan create . --profile:build=x86_64-clang-18-release --build=missing
+        run: conan create . -pr x86_64-clang-18-release --build=missing
