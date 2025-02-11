@@ -1,0 +1,24 @@
+name: Build and test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Conan
+        run: pip install conan
+
+      - name: Conan version
+        run: conan --version
+
