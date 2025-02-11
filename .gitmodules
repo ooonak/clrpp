@@ -1,0 +1,3 @@
+[submodule "cmake-files"]
+	path = cmake-files
+	url = https://github.com/ooonak/cmake-files.git
