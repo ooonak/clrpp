@@ -10,7 +10,8 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE
   clrpp::clrpp
   spdlog::spdlog
-  capnproto::capnproto
+  #capnproto::capnproto
+  Threads::Threads
   GTest::gtest
   GTest::gtest_main
 )
