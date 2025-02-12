@@ -17,11 +17,11 @@ class clrppRecipe(ConanFile):
 
     # Binary configuration
     settings = "os", "compiler", "build_type", "arch"
-    options = {"shared": [True, False], "fPIC": [True, False], "STATIC_ANALYSIS": [True, False], "STRICT_WARNINGS": [True, False]}
-    default_options = {"shared": False, "fPIC": True, "STATIC_ANALYSIS": False, "STRICT_WARNINGS": False}
+    options = {"shared": [True, False], "fPIC": [True, False]}
+    default_options = {"shared": False, "fPIC": True}
 
     # Sources are located in the same place as this recipe, copy them to the recipe
-    exports_sources = ".clang-tidy", ".clang-format", "static_analysis.cmake", "CppCheckSuppressions.txt", "CMakeLists.txt", "example/*", "include/*", "src/*", "tests/*"
+    exports_sources = ".clang-tidy", ".clang-format", "CppCheckSuppressions.txt", "CMakeLists.txt", "example/*", "include/*", "src/*", "tests/*"
 
     def config_options(self):
         if self.settings.os == "Windows":
@@ -40,8 +40,6 @@ class clrppRecipe(ConanFile):
         deps = CMakeDeps(self)
         deps.generate()
         tc = CMakeToolchain(self)
-        tc.variables["STATIC_ANALYSIS"] = self.options.STATIC_ANALYSIS
-        tc.variables["STRICT_WARNINGS"] = self.options.STRICT_WARNINGS
         tc.generate()
 
     def build(self):
@@ -60,6 +58,5 @@ class clrppRecipe(ConanFile):
         self.requires("spdlog/1.15.0")
         self.requires("capnproto/1.1.0")
 
-#    def build_requirements(self):
-#        self.test_requires("gtest/1.15.0")
-
+    def build_requirements(self):
+        self.test_requires("gtest/1.15.0")

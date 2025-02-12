@@ -17,10 +17,12 @@ target_include_directories(${PROJECT_NAME}
     $<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(clrpp 
-  PRIVATE 
+target_link_libraries(clrpp
+  PRIVATE
   spdlog::spdlog
-  capnproto::capnproto
+  CapnProto::capnp
+  CapnProto::kj
+  CapnProto::kj-async
 )
 
 add_library(clrpp::clrpp ALIAS clrpp)
