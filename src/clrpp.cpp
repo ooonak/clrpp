@@ -1,12 +1,15 @@
 #include <iostream>
 #include "clrpp/clrpp.hpp"
 #include "spdlog/spdlog.h"
+/*
 #include "capnp/message.h"
 #include "capnp/serialize.h"
 #include "rpc.capnp.h"
-
+*/
 
 void clrpp(){
+    spdlog::info(__PRETTY_FUNCTION__);
+
     #ifdef NDEBUG
     std::cout << "clrpp/0.0.1: Hello World Release!\n";
     #else
