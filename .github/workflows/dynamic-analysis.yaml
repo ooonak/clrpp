@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get -y install ninja-build ccache libgtest-dev valgrind
+        run: sudo apt-get update && sudo apt-get -y install ninja-build ccache valgrind
 
       - name: Install Conan
         run: pip install conan
