@@ -1,4 +1,4 @@
-name: Dynamic analysis
+name: Static analysis
 
 on:
   workflow_dispatch:
