@@ -21,7 +21,7 @@ class clrppRecipe(ConanFile):
     default_options = {"shared": False, "fPIC": True, "STATIC_ANALYSIS": False, "STRICT_WARNINGS": False}
 
     # Sources are located in the same place as this recipe, copy them to the recipe
-    exports_sources = ".clang-tidy", ".clang-format", "CppCheckSuppressions.txt", "CMakeLists.txt", "example/*", "include/*", "src/*", "tests/*"
+    exports_sources = ".clang-tidy", ".clang-format", "static_analysis.cmake", "CppCheckSuppressions.txt", "CMakeLists.txt", "example/*", "include/*", "src/*", "tests/*"
 
     def config_options(self):
         if self.settings.os == "Windows":
