@@ -16,8 +16,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Ninja
-        run: sudo apt-get update && sudo apt-get -y install ninja-build ccache && apt-get -y sudo auto-remove googletest-tools
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get -y install ninja-build ccache googletest-tools
 
       - name: Install Conan
         run: pip install conan

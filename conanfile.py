@@ -60,6 +60,6 @@ class clrppRecipe(ConanFile):
         self.requires("spdlog/1.15.0")
         self.requires("capnproto/1.1.0")
 
-    def build_requirements(self):
-        self.test_requires("gtest/1.15.0")
+#    def build_requirements(self):
+#        self.test_requires("gtest/1.15.0")
 
