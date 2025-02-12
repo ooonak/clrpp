@@ -8,8 +8,6 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME} 
   PRIVATE
-  spdlog::spdlog
-  #capnproto::capnproto
   clrpp::clrpp
 )
 

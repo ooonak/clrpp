@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.30.3)
 project(clrpp CXX)
 
 # Generate C++ code from Cap'n Proto schema files
-#capnp_generate_cpp(CAPNP_SRCS CAPNP_HDRS rpc.capnp)
+capnp_generate_cpp(CAPNP_SRCS CAPNP_HDRS rpc.capnp)
 
 add_library(clrpp
   ../include/clrpp/clrpp.hpp
-  #${CAPNP_SRCS}
-  #${CAPNP_HDRS}
+  ${CAPNP_SRCS}
+  ${CAPNP_HDRS}
   clrpp.cpp)
 
 target_include_directories(${PROJECT_NAME}
@@ -17,10 +17,12 @@ target_include_directories(${PROJECT_NAME}
     $<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(clrpp 
-  PRIVATE 
+target_link_libraries(clrpp
+  PRIVATE
   spdlog::spdlog
-  #capnproto::capnproto
+  CapnProto::capnp
+  CapnProto::kj
+  CapnProto::kj-async
 )
 
 add_library(clrpp::clrpp ALIAS clrpp)

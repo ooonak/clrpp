@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.30.3)
 
-project(
-  clrpp
+project(clrpp
   VERSION 0.0.1
   DESCRIPTION "Caller C++ client library"
   LANGUAGES CXX)
@@ -22,7 +21,7 @@ endif()
 
 find_package(Threads REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
-#find_package(CapnProto CONFIG REQUIRED)
+find_package(CapnProto CONFIG REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(example)
