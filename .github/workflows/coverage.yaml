@@ -38,8 +38,11 @@ jobs:
       - name: Install profiles
         run: conan config install https://github.com/ooonak/conanconf.git -t git --args="-b main" -sf=profiles -tf=profiles
 
+      - name: Install
+        run: conan install . -pr x86_64-clang-18-coverage --build=missing
+
       - name: Build
-        run: conan build . -pr x86_64-clang-18-coverage --build=missing
+        run: conan build . -pr x86_64-clang-18-coverage
 
       - name: Run Tests with Coverage
         run: |
@@ -71,7 +74,7 @@ jobs:
           name: coverage-badge
           path: coverage_badge.json
 
-      - name: Commit and Push Badge  # Fixed indentation here
+      - name: Commit and Push Badge
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
