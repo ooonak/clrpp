@@ -16,7 +16,7 @@ namespace clr {
 
       template <typename Func>
       bool bind(const std::string& name, Func func) {
-
+        return true;
       }
 
       /**
