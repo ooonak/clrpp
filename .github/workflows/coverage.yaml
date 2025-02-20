@@ -89,8 +89,15 @@ jobs:
           else
             git checkout --orphan gh-pages
           fi
-          
-          mv coverage_badge.json coverage.json
+
+          # Ensure the badge file exists before moving it
+          if [ -f coverage_badge.json ]; then
+            mv coverage_badge.json coverage.json
+          else
+            echo "Error: coverage_badge.json not found!"
+            exit 1
+          fi
+
           git add coverage.json
-          git commit -m "Update coverage badge"
+          git commit -m "Update coverage badge" || echo "No changes to commit"
           git push origin gh-pages
