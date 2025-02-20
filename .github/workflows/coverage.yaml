@@ -69,8 +69,8 @@ jobs:
           for ((i=1; i<=MAX_RETRIES; i++)); do
             curl -X POST -H "Content-Type: application/json" \
             -d '{"schemaVersion":1, "label":"coverage", "message":"'"${{ env.COVERAGE }}"'%", "color":"green"}' \
-            https://img.shields.io/endpoint > coverage_badge.json
-            
+            https://badgen.net/endpoint > coverage_badge.json
+
             if [ -s coverage_badge.json ]; then
               echo "Badge generated successfully!"
               cat coverage_badge.json
