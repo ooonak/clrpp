@@ -1,8 +1,8 @@
-#include "clrpp/clrpp.hpp"
+#include "clrpp/Caller.hpp"
 #include "gtest/gtest.h"
 
 TEST(clrpp, Dummy)
 {
-  clrpp();
+  clr::Caller("test");
   EXPECT_EQ(true, true);
 }

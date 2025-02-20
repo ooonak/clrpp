@@ -1,5 +1,10 @@
 # Caller C++ client
 
+## Design thougts
+
+ - Cap-n Proto over Unix Domain Socket, simple works on nix* and Android.
+ - Not Cap'n Proto RPC, because need to forward across multiple hops.
+
 ### Initial project setup
 
 ```

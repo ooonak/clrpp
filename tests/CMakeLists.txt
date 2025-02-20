@@ -10,6 +10,9 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE
   clrpp::clrpp
   spdlog::spdlog
+  CapnProto::capnp
+  CapnProto::kj
+  CapnProto::kj-async
   Threads::Threads
   GTest::gtest
   GTest::gtest_main

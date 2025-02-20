@@ -47,6 +47,10 @@ class clrppRecipe(ConanFile):
         cmake.configure()
         cmake.build()
 
+        # Run tests after building if not skipped
+        if not self.conf.get("tools.build:skip_test", default=False):
+            self.run("ctest --output-on-failure", cwd=self.build_folder)
+
     def package(self):
         cmake = CMake(self)
         cmake.install()
