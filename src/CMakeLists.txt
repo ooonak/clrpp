@@ -2,13 +2,14 @@ cmake_minimum_required(VERSION 3.30.3)
 project(clrpp CXX)
 
 # Generate C++ code from Cap'n Proto schema files
-capnp_generate_cpp(CAPNP_SRCS CAPNP_HDRS rpc.capnp)
+capnp_generate_cpp(CAPNP_SRCS CAPNP_HDRS ClrMsgs.capnp)
 
 add_library(clrpp
-  ../include/clrpp/clrpp.hpp
+  ../include/clrpp/Caller.hpp
   ${CAPNP_SRCS}
   ${CAPNP_HDRS}
-  clrpp.cpp)
+  ../include/clrpp/MethodRegistry.hpp
+  Caller.cpp)
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC

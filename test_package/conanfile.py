@@ -11,6 +11,7 @@ class clrppTestConan(ConanFile):
 
     def requirements(self):
         self.requires(self.tested_reference_str)
+        self.requires("capnproto/1.1.0")
 
     def build(self):
         cmake = CMake(self)
