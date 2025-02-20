@@ -64,10 +64,18 @@ jobs:
 
       - name: Generate Coverage Badge
         run: |
-          curl -X POST -H "Content-Type: application/json" \
-          -d '{"schemaVersion":1, "label":"coverage", "message":"'${{ env.COVERAGE }}'%", "color":"green"}' \
-          https://img.shields.io/endpoint > coverage_badge.json
-
+          if [ -s coverage_badge.json ]; then
+            curl -X POST -H "Content-Type: application/json" \
+              -d '{"schemaVersion":1, "label":"coverage", "message":"'${{ env.COVERAGE }}'%", "color":"green"}' \
+              https://img.shields.io/endpoint > coverage_badge.json
+          else
+            echo "Error: coverage_badge.json is empty before making the request!"
+            exit 1
+          fi
+          
+          echo "Generated coverage_badge.json:"
+          cat coverage_badge.json
+          
       - name: Upload Badge
         uses: actions/upload-artifact@v4
         with:
