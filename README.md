@@ -3,7 +3,7 @@
 [![Build and test](https://github.com/ooonak/clrpp/actions/workflows/ci.yaml/badge.svg)](https://github.com/ooonak/clrpp/actions/workflows/ci.yaml)
 [![Static analysis](https://github.com/ooonak/clrpp/actions/workflows/static-analysis.yaml/badge.svg)](https://github.com/ooonak/clrpp/actions/workflows/static-analysis.yaml)
 [![Dynamic analysis](https://github.com/ooonak/clrpp/actions/workflows/dynamic-analysis.yaml/badge.svg)](https://github.com/ooonak/clrpp/actions/workflows/dynamic-analysis.yaml)
-![Coverage](https://raw.githubusercontent.com/ooonak/clrpp/gh-pages/coverage.json)
+![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/ooonak/clrpp/gh-pages/coverage.json)
 
 ## Develop
 
