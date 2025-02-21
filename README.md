@@ -3,6 +3,7 @@
 [![Build and test](https://github.com/ooonak/clrpp/actions/workflows/ci.yaml/badge.svg)](https://github.com/ooonak/clrpp/actions/workflows/ci.yaml)
 [![Static analysis](https://github.com/ooonak/clrpp/actions/workflows/static-analysis.yaml/badge.svg)](https://github.com/ooonak/clrpp/actions/workflows/static-analysis.yaml)
 [![Dynamic analysis](https://github.com/ooonak/clrpp/actions/workflows/dynamic-analysis.yaml/badge.svg)](https://github.com/ooonak/clrpp/actions/workflows/dynamic-analysis.yaml)
+![Coverage](https://badgen.net/badge/coverage/0%25/green)
 
 ## Develop
 
