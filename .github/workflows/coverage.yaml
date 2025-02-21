@@ -58,7 +58,9 @@ jobs:
       - name: Update Coverage Badge in README
         run: |
           sed -i "s|!\[Coverage\](https://badgen.net/badge/coverage/.*%25/green)|![Coverage](https://badgen.net/badge/coverage/${{ env.COVERAGE }}%25/green)|" README.md
+          
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
           git add README.md
           git commit -m "Update coverage badge" || echo "No changes to commit"
           git push origin main
-
